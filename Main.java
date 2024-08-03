@@ -18,13 +18,13 @@ public class Main {
         // Create a new list
         List<Zombie> zombies = new ArrayList<>();
         Random random = new Random();
-        int numZombies = random.nextInt(20);
+        int numZombies = random.nextInt(20) + 1;
         // Generate 1-20 zombies using true or false from javas random library
         for (int i = 0; i < numZombies; i++) {
             if (random.nextBoolean()) {
-                zombies.add(new CommonInfected());
+                zombies.add(new CommonInfected(i));
             } else {
-                zombies.add(new Tank());
+                zombies.add(new Tank(i));
             }
         }
         // return the list
@@ -36,19 +36,19 @@ public class Main {
         // Create new list
         List<Survivor> survivors = new ArrayList<>();
         Random random = new Random();
-        int numSurvivors = random.nextInt(20);
+        int numSurvivors = random.nextInt(20) + 1;
         // Generate 1-20 random survivors using 1,2,3 from javas random library
         for (int i = 0; i < numSurvivors; i++) {
             int choice = random.nextInt(3);
             switch (choice) {
                 case 0:
-                    survivors.add(new Scientist());
+                    survivors.add(new Scientist(i));
                     break;
                 case 1:
-                    survivors.add(new Civilian());
+                    survivors.add(new Civilian(i));
                     break;
                 case 2:
-                    survivors.add(new Soldier());
+                    survivors.add(new Soldier(i));
                     break;
             }
         }
