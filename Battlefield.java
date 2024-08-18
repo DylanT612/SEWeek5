@@ -35,7 +35,8 @@ public class Battlefield {
                             // If zombie is dead remove zombie and print kill
                             if (!zombie.isAlive()) {
                                 zombieIterator.remove();
-                                System.out.println(survivor.getType() + " " + survivor.getId() + " killed " + zombie.getType() + " " + zombie.getId());
+                                // Instead of getting specifics I decided to just use a toString to simplify it
+                                System.out.println(survivor + " killed " + zombie);
                                 // Move to next survivor
                                 break;
                             }

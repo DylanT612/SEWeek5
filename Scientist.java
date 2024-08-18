@@ -1,6 +1,6 @@
 // Scientist class
 public class Scientist extends Survivor{
-    public Scientist(int id) {
-        super(20,2, "Scientist", id);
+    public Scientist(Weapon weapon) {
+        super(20,2, "Scientist", weapon.getDamage(), weapon);
     }
 }

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Arrays;
 
 public class Main {
     // Create two lists, generate a list of zombies and survivors
@@ -39,21 +40,41 @@ public class Main {
         int numSurvivors = random.nextInt(20) + 1;
         // Generate 1-20 random survivors using 1,2,3 from javas random library
         for (int i = 0; i < numSurvivors; i++) {
+            Weapon weapon = getRandomWeapon();
             int choice = random.nextInt(3);
             switch (choice) {
                 case 0:
-                    survivors.add(new Scientist(i));
+                    survivors.add(new Scientist(weapon));
                     break;
                 case 1:
-                    survivors.add(new Civilian(i));
+                    survivors.add(new Civilian(weapon));
                     break;
                 case 2:
-                    survivors.add(new Soldier(i));
+                    survivors.add(new Soldier(weapon));
                     break;
             }
         }
         // Return the list
         return survivors;
     }
+
+    // Generate Weapons
+    private static List<Weapon> weaponsCache = Arrays.asList(
+            // Each weapon has a damage and accuracy
+            new Weapon("Shotgun", 25, 75),
+            new Weapon("Submachine Gun", 50, 40),
+            new Weapon("Assault Rifle", 35, 60),
+            new Weapon("Pistol", 20, 90),
+            new Weapon("Axe", 15, 95),
+            new Weapon("Crowbar", 7, 95),
+            new Weapon("Frying Pan", 5, 100)
+    );
+
+    // Pick random weapon from the cache
+    private static Weapon getRandomWeapon() {
+        Random random = new Random();
+        return weaponsCache.get(random.nextInt(weaponsCache.size()));
+    }
+
 }
 

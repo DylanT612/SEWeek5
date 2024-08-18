@@ -1,6 +1,6 @@
 // Civilian class
 public class Civilian extends Survivor{
-    public Civilian(int id) {
-        super(50,5, "Civilian", id);
+    public Civilian(Weapon weapon) {
+        super(50,5, "Civilian", weapon.getDamage(), weapon);
     }
 }
